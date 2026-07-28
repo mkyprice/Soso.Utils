@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soso.Utils", "Soso.Utils\Soso.Utils.csproj", "{0DAE51CD-A542-4D8F-A467-664D068CD558}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soso.Utils.Tests", "Soso.Utils.Tests\Soso.Utils.Tests.csproj", "{DA03509E-6DCC-40FC-AD73-5DF35B07F90A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soso.Utils.Benchmarks", "Soso.Utils.Benchmarks\Soso.Utils.Benchmarks.csproj", "{9C027B1B-FB87-40BE-9070-18EA760816EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DAE51CD-A542-4D8F-A467-664D068CD558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DAE51CD-A542-4D8F-A467-664D068CD558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DAE51CD-A542-4D8F-A467-664D068CD558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DAE51CD-A542-4D8F-A467-664D068CD558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA03509E-6DCC-40FC-AD73-5DF35B07F90A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA03509E-6DCC-40FC-AD73-5DF35B07F90A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA03509E-6DCC-40FC-AD73-5DF35B07F90A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA03509E-6DCC-40FC-AD73-5DF35B07F90A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C027B1B-FB87-40BE-9070-18EA760816EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C027B1B-FB87-40BE-9070-18EA760816EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C027B1B-FB87-40BE-9070-18EA760816EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C027B1B-FB87-40BE-9070-18EA760816EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
