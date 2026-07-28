@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: 9b1d642f1ac4e4d78addd3f1b6aa0b95
+  productGUID: d3e79efc35c1d4a83a893fa46ab00bd7
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Soso.Utils
+  productName: soso-utils-unity
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -847,14 +847,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Soso.Utils
+  metroPackageName: soso-utils-unity
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Soso.Utils
+  metroApplicationDescription: soso-utils-unity
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -925,10 +925,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 7110448f-4ca4-47a0-9447-ce5da8ab4f99
+  cloudProjectId: 29529f38-5fc1-4ae1-8df8-0c82d9dd9f6a
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Soso.Utils 2026-07-27_14-04-26
+  projectName: soso-utils-unity
   organizationId: chronicvagrant
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

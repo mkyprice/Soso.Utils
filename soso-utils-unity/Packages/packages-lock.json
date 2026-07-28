@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.chronicvagrant.soso-utils": {
-      "version": "file:../../com.chronicvagrant.soso-utils",
+      "version": "file:../../Package",
       "depth": 0,
       "source": "local",
       "dependencies": {}
