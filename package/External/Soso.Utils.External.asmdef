@@ -1,6 +1,6 @@
 {
-    "name": "Soso.Utils",
-    "rootNamespace": "Soso.Utils",
+    "name": "Soso.Utils.External",
+    "rootNamespace": "",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
