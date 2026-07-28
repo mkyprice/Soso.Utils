@@ -7,9 +7,21 @@ namespace Soso.Utils.Tags
 {
     public class TagManager : BaseSingleton<TagManager>
     {
-        public Action<GameObject> OnObjectSpawned;
-
+        private Dictionary<string, Action<GameObject>> _onObjectSpawned = new Dictionary<string, Action<GameObject>>();
+        private Dictionary<string, Action<GameObject>> _onObjectDespawned = new Dictionary<string, Action<GameObject>>();
         private Dictionary<string, HashSet<GameObject>> _taggedInstances = new Dictionary<string, HashSet<GameObject>>();
+
+        public void Subscribe(string instanceTag, Action<GameObject> onObjectSpawned = null, Action<GameObject> onObjectDespawned = null)
+        {
+            AddAction(instanceTag, onObjectSpawned, _onObjectSpawned);
+            AddAction(instanceTag, onObjectDespawned, _onObjectDespawned);
+        }
+
+        public void Unsubscribe(string instanceTag, Action<GameObject> onObjectSpawned = null, Action<GameObject> onObjectDespawned = null)
+        {
+            RemoveAction(instanceTag, onObjectSpawned, _onObjectSpawned);
+            RemoveAction(instanceTag, onObjectDespawned, _onObjectDespawned);
+        }
 
         public void RegisterInstance(GameObject instance)
         {
@@ -20,9 +32,13 @@ namespace Soso.Utils.Tags
                 instances = new HashSet<GameObject>();
                 _taggedInstances[instanceTag] = instances;
             }
+            
             instances.Add(instance);
             
-            OnObjectSpawned?.Invoke(instance);
+            if (_onObjectSpawned.TryGetValue(instanceTag, out var action))
+            {
+                action?.Invoke(instance);
+            }
         }
 
         public void UnregisterInstance(GameObject instance)
@@ -33,11 +49,16 @@ namespace Soso.Utils.Tags
             {
                 instances.Remove(instance);
             }
+            
+            if (_onObjectDespawned.TryGetValue(instanceTag, out var action))
+            {
+                action?.Invoke(instance);
+            }
         }
 
-        public IEnumerable<GameObject> GetTaggedInstances(string tag)
+        public IEnumerable<GameObject> GetTaggedInstances(string instanceTag)
         {
-            if (_taggedInstances.TryGetValue(tag, out var instances))
+            if (_taggedInstances.TryGetValue(instanceTag, out var instances))
             {
                 foreach (var instance in instances)
                 {
@@ -45,5 +66,48 @@ namespace Soso.Utils.Tags
                 }
             }
         }
+
+        public void Clear()
+        {
+            _onObjectSpawned.Clear();
+            _onObjectDespawned.Clear();
+            _taggedInstances.Clear();
+        }
+
+        #region Internal
+
+        protected override Awaitable ShutdownAsync()
+        {
+            Clear();
+            
+            return base.ShutdownAsync();
+        }
+
+        private void AddAction(string instanceTag, Action<GameObject> action, Dictionary<string, Action<GameObject>> actions)
+        {
+            if (action != null && actions.TryAdd(instanceTag, action) == false)
+            {
+                actions[instanceTag] += action;
+            }
+        }
+
+        private void RemoveAction(string instanceTag, Action<GameObject> action, Dictionary<string, Action<GameObject>> actions)
+        {
+            if (action != null && actions.ContainsKey(instanceTag))
+            {
+                var currentAction = actions[instanceTag];
+                currentAction -= action;
+                if (currentAction == null)
+                {
+                    actions.Remove(instanceTag);
+                }
+                else
+                {
+                    actions[instanceTag] = currentAction;
+                }
+            }
+        }
+
+        #endregion
     }
 }
