@@ -25,7 +25,7 @@ namespace Soso.Utils
         {
             if (source == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(source));
             }
 
             using (var enumerator = source.GetEnumerator())
@@ -48,7 +48,11 @@ namespace Soso.Utils
         {
             if (source == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(source));
+            }
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
             }
             
             foreach (T value in source)
@@ -65,7 +69,11 @@ namespace Soso.Utils
         {
             if (source == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(source));
+            }
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
             }
             
             foreach (T value in source)
@@ -82,7 +90,11 @@ namespace Soso.Utils
         {
             if (source == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(source));
+            }
+            if (selector == null)
+            {
+                throw new ArgumentNullException(nameof(selector));
             }
 
             foreach (T item in source)
@@ -91,11 +103,34 @@ namespace Soso.Utils
             }
         }
 
+        public static IEnumerable<TS> SelectMany<T, TS>(this IEnumerable<T> source, Func<T, IEnumerable<TS>> selector)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+            if (selector == null)
+            {
+                throw new ArgumentNullException(nameof(selector));
+            }
+            foreach (T item in source)
+            {
+                foreach (TS element in selector(item))
+                {
+                    yield return element;
+                }
+            }
+        }
+
         public static IEnumerable<T> Where<T>(this IEnumerable<T> source, Func<T, bool> selector)
         {
             if (source == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(source));
+            }
+            if (selector == null)
+            {
+                throw new ArgumentNullException(nameof(selector));
             }
 
             foreach (T item in source)
@@ -111,7 +146,7 @@ namespace Soso.Utils
         {
             if (source == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(source));
             }
 
             if (source is ICollection icollection)
@@ -136,7 +171,11 @@ namespace Soso.Utils
         {
             if (source == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(source));
+            }
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
             }
             
             int count = 0;
@@ -154,7 +193,7 @@ namespace Soso.Utils
         {
             if (source == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(source));
             }
 
             if (source is ICollection<T> collection)
@@ -174,7 +213,7 @@ namespace Soso.Utils
         {
             if (source == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(source));
             }
 
             if (source is List<T> list)
@@ -189,7 +228,7 @@ namespace Soso.Utils
         {
             if (source == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(source));
             }
 
             if (source is HashSet<T> list)

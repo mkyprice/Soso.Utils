@@ -103,6 +103,19 @@ namespace Soso.Utils.Tests
         }
 
         [Test]
+        public void Test_SelectMany()
+        {
+            List<string>[] test = [["one", "two"], ["three", "four"]];
+            string[] expected = ["one", "two", "three", "four"];
+            string[] selected = test.SelectMany(i => i.ToArray()).ToArray();
+
+            for (int i = 0; i < selected.Length; i++)
+            {
+                Assert.That(selected[i], Is.EqualTo(expected[i]));
+            }
+        }
+
+        [Test]
         public void Test_Where()
         {
             const string findMe = "select";
