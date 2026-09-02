@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEngine;
 
 namespace Soso.Utils.Editor.Tags
@@ -6,3 +8,5 @@ namespace Soso.Utils.Editor.Tags
     {
     }
 }
+
+#endif
