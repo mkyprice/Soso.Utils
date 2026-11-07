@@ -1,17 +1,13 @@
-using Soso.Utils.Logging;
-using Soso.Utils.Logging.Internals;
-using Soso.Utils.Logging.Loggers;
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Soso.Utils.Logging.Extensions;
+using Soso.Utils.Logging.Internals;
+using Soso.Utils.Logging.Loggers;
 
-public class SosoLogger<T>
-    where T : unmanaged, Enum
+namespace Soso.Utils.Logging;
+
+public class SosoLogger
 {
-    public T ActiveChannels;
-
     public LOG_LEVEL Level = LOG_LEVEL.Debug;
 
     public ILogWriter Writer;
@@ -25,36 +21,34 @@ public class SosoLogger<T>
         Writer = writer;
     }
 
-    public void Debug(T channel, string message, params object[]? properties)
+    public void Debug(string message, params object[]? properties)
     {
-        _LogInternal(LOG_LEVEL.Debug, channel, message, properties);
+        Log(LOG_LEVEL.Debug, message, properties);
     }
     
-    public void Info(T channel, string message, params object[]? properties)
+    public void Info(string message, params object[]? properties)
     {
-        _LogInternal(LOG_LEVEL.Info, channel, message, properties);
+        Log(LOG_LEVEL.Info, message, properties);
     }
     
-    public void Warn(T channel, string message, params object[]? properties)
+    public void Warn(string message, params object[]? properties)
     {
-        _LogInternal(LOG_LEVEL.Warn, channel, message, properties);
+        Log(LOG_LEVEL.Warn, message, properties);
     }
     
-    public void Error(T channel, string message, params object[]? properties)
+    public void Error(string message, params object[]? properties)
     {
-        _LogInternal(LOG_LEVEL.Error, channel, message, properties);
+        Log(LOG_LEVEL.Error, message, properties);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public bool IsEnabled(LOG_LEVEL level, T channel) => (level >= Level && (ActiveChannels.HasFlagNoAlloc(channel)));
-
-
+    public bool IsEnabled(LOG_LEVEL level) => level >= Level;
+    
     private readonly MessageProcessor _processor = new MessageProcessor(100);
     private readonly ConcurrentDictionary<string, MessageTemplate> _messageCache = new ConcurrentDictionary<string, MessageTemplate>();
-    
-    private void _LogInternal(LOG_LEVEL level, T channel, string messageTemplate, params object[]? properties)
+    protected void Log(LOG_LEVEL level, string messageTemplate, params object[]? properties)
     {
-        if (IsEnabled(level, channel) == false)
+        if (IsEnabled(level) == false)
         {
             return;
         }

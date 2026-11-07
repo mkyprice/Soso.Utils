@@ -7,7 +7,7 @@
 
         <!-- NuGet Package Metadata -->
         <PackageId>soso.utils.logging</PackageId>
-        <Version>1.0.0</Version>
+        <Version>1.1.0</Version>
         <Authors>Ky Price</Authors>
         <Company>Chronic Vagrant</Company>
         <Description>A reasonably lightweight logging library with swappable writters</Description>
