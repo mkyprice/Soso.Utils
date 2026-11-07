@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+
+        <!-- NuGet Package Metadata -->
+        <PackageId>soso.utils.logging</PackageId>
+        <Version>1.1.0</Version>
+        <Authors>Ky Price</Authors>
+        <Company>Chronic Vagrant</Company>
+        <Description>A reasonably lightweight logging library with swappable writters</Description>
+        <PackageTags>logging;logger;utils</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/mkyprice/Soso.Utils</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+
+        <!-- Automatically build package on every Release build -->
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="docs\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Memory" Version="4.6.3" />
+    </ItemGroup>
+
+</Project>
