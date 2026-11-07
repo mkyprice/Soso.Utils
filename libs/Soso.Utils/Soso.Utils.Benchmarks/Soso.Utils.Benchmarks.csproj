@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Soso.Utils.Logging\Soso.Utils.Logging.csproj" />
       <ProjectReference Include="..\Soso.Utils\Soso.Utils.csproj" />
     </ItemGroup>
 

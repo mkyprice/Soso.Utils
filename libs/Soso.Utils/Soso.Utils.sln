@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soso.Utils.Tests", "Soso.Ut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soso.Utils.Benchmarks", "Soso.Utils.Benchmarks\Soso.Utils.Benchmarks.csproj", "{9C027B1B-FB87-40BE-9070-18EA760816EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soso.Utils.Logging", "Soso.Utils.Logging\Soso.Utils.Logging.csproj", "{2D33DFCD-0E24-44E3-9831-E82BC08C72FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{9C027B1B-FB87-40BE-9070-18EA760816EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C027B1B-FB87-40BE-9070-18EA760816EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C027B1B-FB87-40BE-9070-18EA760816EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D33DFCD-0E24-44E3-9831-E82BC08C72FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D33DFCD-0E24-44E3-9831-E82BC08C72FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D33DFCD-0E24-44E3-9831-E82BC08C72FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D33DFCD-0E24-44E3-9831-E82BC08C72FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
